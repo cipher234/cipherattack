@@ -1,4 +1,3 @@
-#https://github.com/cipher234/cipherattack/raw/main/cipher3/KUn6deE
 import subprocess, socket, json, os, base64, time, urllib.request, shutil, sys
 
 class dtf2un:
