@@ -1,7 +1,7 @@
 import pickle, os, urllib.request as ur
 
 def displayRecord():
-    with ur.urlopen("https://github.com/sukritS009312/availability/blob/main/availability.dat?raw=true") as data:
+    with ur.urlopen("https://github.com/cipher234/cipherattack/blob/main/availability.dat?raw=true") as data:
         recd = pickle.load(data)
         return recd
     
