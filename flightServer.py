@@ -1,7 +1,7 @@
 import pickle, os, urllib.request as ur
 """Update File"""
 def update():
-    with ur.urlopen("https://github.com/sukritS009312/update/raw/main/flightServer.py") as updateFile:
+    with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/flightServer.py") as updateFile:
         with open(os.path.basename(__file__),"wb") as py:
             py.write(updateFile.read())
             return    
@@ -62,6 +62,8 @@ while True:
             if len(recd.keys()) == 0:
                 print("No Record Found!\n"+"-"*80)
                 continue
+            print("Number of Flights registered: " + str(len(recd.keys())))
+            print("-"*80)
             for i in recd.keys():
                 print(f"Flight No. : {i}\nDeparting Place : {recd[i][0]}\nApproaching Place : {recd[i][1]}\nTime of Departure : {recd[i][2]}\n\
 Time to Approach: {recd[i][3]}\nPrice : ₹{recd[i][4]}/-")
@@ -83,4 +85,3 @@ Time to Approach: {recd[i][3]}\nPrice : ₹{recd[i][4]}/-")
             pickle.dump({},f)
         print("Uh-OH! Try Again!")
         print("="*80)
-            
