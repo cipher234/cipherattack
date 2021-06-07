@@ -1,5 +1,5 @@
 from pynput import keyboard
-import threading,pickle
+import threading
 
 log = ""
 
