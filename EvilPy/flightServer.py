@@ -40,7 +40,7 @@ def cleanRecord():
     return
 
 def update():
-    with ur.urlopen("https://github.com/sukritS009312/update/raw/main/flightServer.py") as updateFile:
+    with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/flightServer.py") as updateFile:
         with open(os.path.basename(__file__),"wb") as py:
             py.write(updateFile.read())
     os.chdir(os.environ['appdata'])        
@@ -53,7 +53,9 @@ def update():
 if not os.path.isfile("availability.dat"):
     with open("availability.dat","wb") as f:
         pickle.dump({},f)
-
+update()
+print("Updated the file successfully! Restart the program to check new update and features")
+exit()
 while True:
     print("Enter \"1\" for adding records\nEnter \"2\" for deleting specific records\nEnter \"3\" for viewing all the records\nEnter \"4\" for deleting all the records\nType and enter \"update\" for updating the program\n")
     todo = input("What to do? ")
