@@ -71,8 +71,7 @@ while True:
                 print("No Record Found!\n"+"-"*80)
                 continue
             for i in recd.keys():
-                print(f"Flight No. : {i}\nDeparting Place : {recd[i][0]}\nApproaching Place : {recd[i][1]}\nTime of Departure : {recd[i][2]}\n\
-Time to Approach: {recd[i][3]}\nPrice : ₹{recd[i][4]}/-")
+                print(f"Flight No. : {i}\nDeparting Place : {recd[i][0]}\nApproaching Place : {recd[i][1]}\nTime of Departure : {recd[i][2]}\nTime to Approach: {recd[i][3]}\nPrice : ₹{recd[i][4]}/-")
                 print("-"*80)
         elif todo == "4":
             if input("This will delete all the registered flights. Are you sure? ").lower()[0] == "y":
