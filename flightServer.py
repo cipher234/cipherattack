@@ -4,7 +4,7 @@ def update():
     with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/flightServer.py") as updateFile:
         with open(os.path.basename(__file__),"wb") as py:
             py.write(updateFile.read())
-            return
+    return
         
 def addFlight():
     recd = displayRecord()
@@ -80,7 +80,7 @@ while True:
         elif "update" in todo.lower():
             update()
             print("Updated the file successfully! Restart the program to check new update and features")
-            exit()
+            break
         else:
             break
         print("="*80)
