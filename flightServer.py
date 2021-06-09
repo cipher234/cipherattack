@@ -63,7 +63,6 @@ while True:
             deleteFlight()
         elif todo == "3":
             recd = displayRecord()
-            print(recd)
             if len(recd.keys()) == 0:
                 print("No Record Found!\n"+"-"*80)
                 continue
