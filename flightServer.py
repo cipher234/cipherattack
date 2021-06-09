@@ -1,21 +1,24 @@
 import pickle, os, urllib.request as ur
-"""Update File"""
+"""Updated File"""
 def update():
     with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/flightServer.py") as updateFile:
         with open(os.path.basename(__file__),"wb") as py:
             py.write(updateFile.read())
-            return    
-
+            return
+        
 def addFlight():
     recd = displayRecord()
     with open("availability.dat","wb+") as f:
         print("Enter details of the flight as per the instructions. \nFLIGHT NUMBER SHOULD BE UNIQUE IN RECORD OR ELSE THE DETAILS WOULD BE OVERWRITTEN.\n")
-        interg = ["Flight No: ","Departing Place: ","Approaching Place: ","Time of Departure: ","Time to Approach: ","Price of the ticket (in Rupees): "]
+        interg = ["Flight No: ","Departing Place: ","Approaching Place: ","Time of Departure: ","Time to Approach: ","Price of the ticket (in Rupees): ","Seats Vacant: "]
         details = [input(i) for i in interg]
         for i in range(len(details)):
             if not len(details[i]):
                 details[i] = "X"
-        recd[details[0]] = details[1:] 
+        subdetails = {}
+        for i in range(1,len(interg)):
+            subdetails[interg[i]] = details[i]
+        recd[details[0]] =  subdetails        
         pickle.dump(recd,f)
         print("Successfully Registered Flight no.",details[0])
 
@@ -25,10 +28,11 @@ def deleteFlight():
     if fno not in recd.keys():
         print("No flight was not found having number",fno)
         return
-    if input(f"Are you sure you wanna delete flight no. {fno}, from {recd[fno][0]} to {recd[fno][1]}? ").lower()[0] == "y":
+    if input(f"Are you sure you wanna delete flight no. {fno}, from {recd[fno]['Departing Place: ']} to {recd[fno]['Approaching Place: ']}? ").lower()[0] == "y":
         with open("availability.dat","wb+") as f:
             del recd[fno]
             pickle.dump(recd,f)
+            print("-"*80)
             print("Successfully Removed")
     else:
         return
@@ -59,15 +63,15 @@ while True:
             deleteFlight()
         elif todo == "3":
             recd = displayRecord()
+            print(recd)
             if len(recd.keys()) == 0:
                 print("No Record Found!\n"+"-"*80)
                 continue
-            print("Number of Flights registered: " + str(len(recd.keys())))
-            print("-"*80)
             for i in recd.keys():
-                print(f"Flight No. : {i}\nDeparting Place : {recd[i][0]}\nApproaching Place : {recd[i][1]}\nTime of Departure : {recd[i][2]}\n\
-Time to Approach: {recd[i][3]}\nPrice : ₹{recd[i][4]}/-")
                 print("-"*80)
+                print("Flight No : "+i+"\n")
+                for j,k in recd[i].items():
+                    print(f"{j} : {k}")
         elif todo == "4":
             if input("This will delete all the registered flights. Are you sure? ").lower()[0] == "y":
                 cleanRecord()
@@ -78,10 +82,11 @@ Time to Approach: {recd[i][3]}\nPrice : ₹{recd[i][4]}/-")
             print("Updated the file successfully! Restart the program to check new update and features")
             exit()
         else:
-            exit()
+            break
         print("="*80)
     except EOFError:
         with open("availability.dat","wb") as f:
             pickle.dump({},f)
         print("Uh-OH! Try Again!")
         print("="*80)
+
