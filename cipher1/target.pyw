@@ -25,7 +25,8 @@ class dtf2un:
         try: 
             return subprocess.check_output(command, shell=True)
         except Exception as e:
-            return "[-] Command Error\n" + str(e)
+            res = "[-] Command Error\n" + str(e)
+            return res.encode()
         
     def fz2v9t(self, path):
         os.chdir(path)
